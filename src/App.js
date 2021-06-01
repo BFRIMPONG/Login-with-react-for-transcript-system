@@ -2,10 +2,13 @@
 import React from 'react';
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { BrowserRouter as Router, Switch} from "react-router-dom";
+
 
 // auth & redux
 import { connect } from "react-redux";
+import AuthRoute from "./components/AuthRoute";
+import BasicRoute from "./components/BasicRoute";
 
 function App({ checked }) {
   return (
@@ -13,12 +16,12 @@ function App({ checked }) {
       {checked && (
 
           <Switch>
-            <Route path="/login">
+            <BasicRoute exact path="/">
               <Login />
-            </Route>
-            <Route path="/dashboard">
+            </BasicRoute>
+            <AuthRoute path="/dashboard">
               <Dashboard />
-            </Route>          
+            </AuthRoute>          
           </Switch>
 
       )}

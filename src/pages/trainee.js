@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import {Button} from "@material-ui/core";
 
@@ -9,11 +10,13 @@ import { logoutUser } from "./../auth/actions/userActions";
 // React router
 import { useHistory } from "react-router-dom";
 
-const Dashboard = ({ logoutUser, user }) => {
+const Trainee = ({ logoutUser, user }) => {
   const history = useHistory();
   return (
     <div>
-          Admin Dashboard
+
+        Trainee Dashboard
+
 
           <Button to="#" onClick={() => logoutUser(history)}>
             Logout
@@ -28,4 +31,4 @@ const mapStateToProps = ({ session }) => ({
   user: session.user,
 });
 
-export default connect(mapStateToProps, { logoutUser })(Dashboard);
+export default connect(mapStateToProps, { logoutUser })(Trainee);

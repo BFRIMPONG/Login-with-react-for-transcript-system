@@ -7,7 +7,6 @@ import {
   TextField, 
   Typography,
   Link,
-  Container,
 } from "@material-ui/core";
 import HttpsOutlinedIcon from "@material-ui/icons/HttpsOutlined";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -17,7 +16,8 @@ import * as Yup from 'yup';
 import {connect} from 'react-redux';
 import {loginUser} from "./../auth/actions/userActions"
 import {useHistory} from "react-router-dom"
-import {background} from "../assets/bg.jpg"
+import background from "../assets/bg.jpg"
+
 
 
 const Login = ({loginUser}) => {
@@ -26,6 +26,7 @@ const Login = ({loginUser}) => {
     padding: 20,
     width: 300,
     margin: "0px auto",
+    marginTop:150
   };
   const avatarStyle = { backgroundColor: "tomato" };
   const textFieldStyle = {
@@ -45,10 +46,13 @@ const Login = ({loginUser}) => {
     password:'',
     remember: false,
   }
-  const styledContainer = {margin: 0, display: "flex", justifyContent: "center", marginTop: 140, 
-    backgroundImage: `url(${background})`,
+
+  const styledContainer = {margin: 0, display: "flex", justifyContent: "center", 
+    backgroundImage:`url(${background})`,
     backgroundSize: "cover",
-    backgroundAttachment: "fixed"
+    backgroundAttachment: "fixed",
+    height: "100%", width:"100%"
+
   }
  
 
@@ -69,8 +73,7 @@ const Login = ({loginUser}) => {
   
 
   return (
-  
-    <Container style={styledContainer}>
+    <section style={styledContainer}>
     <Grid>
       <Paper elevation={10} style={paperStyle}>
         <Grid align="center">
@@ -135,7 +138,8 @@ const Login = ({loginUser}) => {
 
       </Paper>
     </Grid>
-    </Container>
+    </section>
+
   );
 };
 

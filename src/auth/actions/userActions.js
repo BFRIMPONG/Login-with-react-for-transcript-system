@@ -23,7 +23,7 @@ export const loginUser = (
     )
     .then((response) => {
       const { data } = response;
-      console.log(typeof(response.status))
+      console.log(data)
       if (response.status === 200) {
         const userData = data.result.role;
 
@@ -35,6 +35,7 @@ export const loginUser = (
             sessionService
               .saveUser(userData)
               .then(() => {
+          
                 history.push("/dashboard");
               })
               .catch((err) => console.error(err));
@@ -69,6 +70,6 @@ export const logoutUser = (history) => {
     return () => {
         sessionService.deleteSession();
         sessionService.deleteUser();
-        history.push('/login');
+        history.push('/');
     }
 };
